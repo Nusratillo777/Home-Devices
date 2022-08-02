@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.nusratillo.testtask.R
 import com.nusratillo.testtask.data.Languages
@@ -76,6 +77,7 @@ class UserDevicesActivity : AppCompatActivity() {
     private fun observeData() {
         userDevicesViewModel.loadState.observe(this, loadStateRenderer::render)
         userDevicesViewModel.devices.observe(this) {
+            binding.emptyInfoTv.isVisible = it.isEmpty()
             adapter.setItems(it)
         }
         userDevicesViewModel.openActivityByType.observe(this, ::observeActivityAction)

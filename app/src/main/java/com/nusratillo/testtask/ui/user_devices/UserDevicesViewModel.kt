@@ -94,6 +94,7 @@ class UserDevicesViewModel(
     }
 
     fun applyFilter() {
+        _selectedFilter.postValue(_selectedFilter.value)
         getUserDevicesBy()
     }
 
