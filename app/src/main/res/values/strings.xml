@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name" translatable="false">TestTask</string>
+    <string name="try_again">Try Again</string>
+    <string name="content_description">content description</string>
+    <string name="user_devices_is_empty">User devices list is empty</string>
+    <string name="intensity">Intensity</string>
+    <string name="position">Position</string>
+    <string name="temperature">Temperature</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="device_updated_successfully">Device updated successfully!</string>
+    <string name="device_deleted">Device deleted!</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="city">City</string>
+    <string name="street">Street</string>
+    <string name="postal_code">Postal code</string>
+    <string name="street_code">Street code</string>
+    <string name="country">Country</string>
+    <string name="address">Address</string>
+    <string name="birth_date">Birth data: %s</string>
+
+    <string name="user_updated_successfully">User updated successfully!</string>
+    <string name="field_could_not_be_empty">Field could not be empty!</string>
+    <string name="enter_valid_postal_code">Enter valid postal code</string>
+    <string name="user_settings">User settings</string>
+    <string name="change_language">Change Language</string>
+    <string name="devices">Devices</string>
+
+    <string name="select_device_type">Select a device type</string>
+    <string name="lights">Lights</string>
+    <string name="heaters">Heaters</string>
+    <string name="roller_shutters">Roller shutters</string>
+    <string name="ok" translatable="false">Ok</string>
+
+    <string name="english" translatable="false">English</string>
+    <string name="french" translatable="false">French</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.10359905819038008" />
+        <entry key="app/src/main/res/drawable/bg_filter.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.142" />
+        <entry key="app/src/main/res/layout/activity_bike_stations.xml" value="0.1287037037037037" />
+        <entry key="app/src/main/res/layout/activity_device.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/activity_heater.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/activity_lights.xml" value="0.20563180106026785" />
+        <entry key="app/src/main/res/layout/activity_roller_shutter.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/activity_user.xml" value="0.21156768798828124" />
+        <entry key="app/src/main/res/layout/activity_user_devices.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/item_bike_station.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/item_user_device.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/view_error_state.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/view_heater.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/view_info_with_count.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/view_light.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_lights.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/view_loading.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/view_roller_shutter.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/menu/menu_device.xml" value="0.25555555555555554" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.25555555555555554" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

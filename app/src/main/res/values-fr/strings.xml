@@ -1,0 +1,32 @@
+<resources>
+    <string name="try_again">Réessayer</string>
+    <string name="content_description">descriptif du contenu</string>
+    <string name="user_devices_is_empty">La liste des appareils utilisateur est vide</string>
+    <string name="intensity">Intensité</string>
+    <string name="position">Position</string>
+    <string name="temperature">Température</string>
+    <string name="something_went_wrong">Quelque chose s\'est mal passé</string>
+    <string name="device_updated_successfully">Appareil mis à jour avec succès !</string>
+    <string name="device_deleted">Appareil supprimé !</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom de famille</string>
+    <string name="city">Ville</string>
+    <string name="street">Rue</string>
+    <string name="postal_code">Code postal</string>
+    <string name="street_code">Indicatif de la rue</string>
+    <string name="country">Pays</string>
+    <string name="address">Adresse</string>
+    <string name="birth_date">Données de naissance: %s</string>
+
+    <string name="user_updated_successfully">Utilisateur mis à jour avec succès!</string>
+    <string name="field_could_not_be_empty">Le champ ne peut pas être vide!</string>
+    <string name="enter_valid_postal_code">Entrez un code postal valide</string>
+    <string name="user_settings">Paramètres utilisateur</string>
+    <string name="change_language">Changer de langue</string>
+    <string name="devices">Dispositifs</string>
+
+    <string name="select_device_type">Sélectionnez un type d\'appareil</string>
+    <string name="lights">Lumières</string>
+    <string name="heaters">Radiateurs</string>
+    <string name="roller_shutters">Des volets roulants</string>
+</resources>
