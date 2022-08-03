@@ -5,8 +5,9 @@ personal info. This app is available in 2 languages(English/French). To make the
 components were used. In addition, if you change the device's mode to dark, the app adjusts dark mode.
 
 ## Architecture
-    - Clean architecture is used with MVVM in ui layer
-    - Followed to App architecture guide provided by google  
+    - UI: activities is used with ViewModels (MVVM)
+    - Data: Models, Enntities, Mappers, Data stroges, and Business logic are located
+    - Domain: Encapsulates business logic
 
 ## Technologies
     - Android SDK
