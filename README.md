@@ -1,4 +1,4 @@
-##This is a test project. In this project:
+## This is a test project. In this project:
     - Kotlin
     - Android SDK
     - RxJava
@@ -7,4 +7,4 @@
     - JUnit/Mockito for testing
     - Koin for Dependency Injection
     - App supports dark theme when configuration changes to the dark mode
-##technologies/libraries is used.
+## technologies/libraries is used.
