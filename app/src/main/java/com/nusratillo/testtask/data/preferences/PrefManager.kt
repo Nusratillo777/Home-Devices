@@ -14,11 +14,11 @@ class PrefManager constructor(
     private val pref: SharedPreferences = context.getSharedPreferences(APP_PREFERENCE_NAME, 0)
     private val editor: SharedPreferences.Editor = pref.edit()
 
-    var isFirstLoading: Boolean
-        get() = pref.getBoolean(KEY_FIRST_LOADING, true)
+    var isDevicesLoaded: Boolean
+        get() = pref.getBoolean(KEY_IS_DEVICES_LOADED, false)
         set(value) {
             editor.apply {
-                putBoolean(KEY_FIRST_LOADING, value)
+                putBoolean(KEY_IS_DEVICES_LOADED, value)
                 commit()
             }
         }

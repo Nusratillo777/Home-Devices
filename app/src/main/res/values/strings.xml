@@ -26,7 +26,8 @@
     <string name="change_language">Change Language</string>
     <string name="devices">Devices</string>
 
-    <string name="select_device_type">Select a device type</string>
+    <string name="select_device_type">Select device types</string>
+    <string name="select_language">Select a language</string>
     <string name="lights">Lights</string>
     <string name="heaters">Heaters</string>
     <string name="roller_shutters">Roller shutters</string>

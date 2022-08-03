@@ -1,13 +1,14 @@
 package com.nusratillo.testtask.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.nusratillo.testtask.EMPTY_STRING
 import com.nusratillo.testtask.R
 import com.nusratillo.testtask.data.model.Device
-import com.nusratillo.testtask.data.model.RollerShutter
-import com.nusratillo.testtask.domain.UserDevicesUseCase
+import com.nusratillo.testtask.domain.UserDevicesInteractor
 import com.nusratillo.testtask.ui.custom_view.load_state.ErrorState
 import com.nusratillo.testtask.ui.custom_view.load_state.LoadState
 import com.nusratillo.testtask.ui.custom_view.load_state.LoadingState
@@ -17,7 +18,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 abstract class DeviceBaseViewModel(
-    private val userDevicesUseCase: UserDevicesUseCase
+    private val userDevicesInteractor: UserDevicesInteractor,
 ) : ViewModel() {
     protected val _loadState = MutableLiveData<LoadState>()
     val loadState: LiveData<LoadState> = _loadState
@@ -35,7 +36,7 @@ abstract class DeviceBaseViewModel(
     fun updateDevice() {
         _loadState.postValue(LoadingState)
         compositeDisposable.add(
-            userDevicesUseCase.updateDevice(device.value ?: return)
+            userDevicesInteractor.updateDevice(device.value ?: return)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
@@ -57,7 +58,7 @@ abstract class DeviceBaseViewModel(
     protected fun getDeviceById(deviceId: Int) {
         _loadState.postValue(LoadingState)
         compositeDisposable.add(
-            userDevicesUseCase.getDeviceBy(deviceId)
+            userDevicesInteractor.getDeviceBy(deviceId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(

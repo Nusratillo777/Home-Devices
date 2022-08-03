@@ -10,7 +10,6 @@ enum class DeviceTypeWithNames(
     LIGHT("Light", R.string.lights),
     HEATER("Heater", R.string.heaters),
     ROLLER_SHUTTER("RollerShutter", R.string.roller_shutters);
-    //NONE(EMPTY_STRING, R.string.clear_filter);
 
     companion object {
         fun getByActualName(actualName: String): DeviceTypeWithNames {

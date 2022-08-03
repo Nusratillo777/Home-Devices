@@ -9,10 +9,10 @@ import com.nusratillo.testtask.R
 import com.nusratillo.testtask.data.convertToLong
 import com.nusratillo.testtask.data.convertToTripleDate
 import com.nusratillo.testtask.data.model.User
-import com.nusratillo.testtask.domain.UserUseCase
+import com.nusratillo.testtask.domain.UserInteractor
 
 class UserViewModel(
-    private val userUseCase: UserUseCase
+    private val userInteractor: UserInteractor
 ) : ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
@@ -24,7 +24,7 @@ class UserViewModel(
     val showDatePickerAction: LiveData<Triple<Int, Int, Int>> = _showDatePickerAction
 
     init {
-        _user.postValue(userUseCase.getUser())
+        _user.postValue(userInteractor.getUser())
     }
 
     fun setField(state: FieldState) {
@@ -53,7 +53,7 @@ class UserViewModel(
 
     fun updateUser() {
         if (isAllFieldsCorrect()) {
-            userUseCase.saveUser(_user.value ?: User())
+            userInteractor.saveUser(_user.value ?: User())
             _message.postValue(R.string.user_updated_successfully)
         }
     }

@@ -10,18 +10,18 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel {
-        UserDevicesViewModel(userDevicesUseCase = get(), userUseCase = get())
+        UserDevicesViewModel(userDevicesInteractor = get(), languageInteractor = get())
     }
     viewModel {
-        HeaterViewModel(userDevicesUseCase = get())
+        HeaterViewModel(userDevicesInteractor = get())
     }
     viewModel {
-        LightsViewModel(userDevicesUseCase = get())
+        LightsViewModel(userDevicesInteractor = get())
     }
     viewModel {
-        RollerShutterViewModel(userDevicesUseCase = get())
+        RollerShutterViewModel(userDevicesInteractor = get())
     }
     viewModel {
-        UserViewModel(userUseCase = get())
+        UserViewModel(userInteractor = get())
     }
 }

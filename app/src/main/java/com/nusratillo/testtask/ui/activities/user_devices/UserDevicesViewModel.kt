@@ -7,8 +7,8 @@ import com.nusratillo.testtask.EMPTY_STRING
 import com.nusratillo.testtask.R
 import com.nusratillo.testtask.data.Languages
 import com.nusratillo.testtask.data.model.*
-import com.nusratillo.testtask.domain.UserDevicesUseCase
-import com.nusratillo.testtask.domain.UserUseCase
+import com.nusratillo.testtask.domain.LanguageInteractor
+import com.nusratillo.testtask.domain.UserDevicesInteractor
 import com.nusratillo.testtask.ui.custom_view.load_state.ErrorState
 import com.nusratillo.testtask.ui.custom_view.load_state.LoadState
 import com.nusratillo.testtask.ui.custom_view.load_state.LoadingState
@@ -18,8 +18,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class UserDevicesViewModel(
-    private val userDevicesUseCase: UserDevicesUseCase,
-    private val userUseCase: UserUseCase
+    private val userDevicesInteractor: UserDevicesInteractor,
+    private val languageInteractor: LanguageInteractor
 ) : ViewModel() {
     private val _loadState = MutableLiveData<LoadState>()
     val loadState: LiveData<LoadState> = _loadState
@@ -36,7 +36,7 @@ class UserDevicesViewModel(
     private var _showLanguages = MutableLiveData<SelectableItems>()
     val showLanguages: LiveData<SelectableItems> = _showLanguages
     val selectedLanguage: Languages
-        get() = userUseCase.selectedLanguage
+        get() = languageInteractor.selectedLanguage
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -103,7 +103,7 @@ class UserDevicesViewModel(
         _showLanguages.postValue(
             SelectableItems(
                 Languages.values().map { it.titleId },
-                if (userUseCase.selectedLanguage == Languages.EN) 0 else 1,
+                if (languageInteractor.selectedLanguage == Languages.EN) 0 else 1,
                 DialogState.OPEN
             )
         )
@@ -115,14 +115,14 @@ class UserDevicesViewModel(
 
     fun onLanguageSelected(selectedPosition: Int) {
         val selectedLanguage = Languages.values()[selectedPosition]
-        userUseCase.selectedLanguage = selectedLanguage
+        languageInteractor.selectedLanguage = selectedLanguage
         _showLanguages.postValue(_showLanguages.value?.copy(state = DialogState.CLOSE))
     }
 
     fun deleteDevice(itemPosition: Int) {
         _loadState.postValue(LoadingState)
         compositeDisposable.add(
-            userDevicesUseCase.deleteDeviceBy(devices.value?.get(itemPosition)?.id ?: return)
+            userDevicesInteractor.deleteDeviceBy(devices.value?.get(itemPosition)?.id ?: return)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
@@ -147,7 +147,7 @@ class UserDevicesViewModel(
         _loadState.postValue(LoadingState)
         compositeDisposable.clear()
         compositeDisposable.add(
-            userDevicesUseCase.getUserDevicesBy(types)
+            userDevicesInteractor.getUserDevicesBy(types)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(

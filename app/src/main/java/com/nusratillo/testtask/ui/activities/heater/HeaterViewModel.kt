@@ -1,16 +1,12 @@
 package com.nusratillo.testtask.ui.activities.heater
 
 import com.nusratillo.testtask.data.model.Heater
-import com.nusratillo.testtask.domain.UserDevicesUseCase
+import com.nusratillo.testtask.domain.UserDevicesInteractor
 import com.nusratillo.testtask.ui.DeviceBaseViewModel
 
 class HeaterViewModel(
-    userDevicesUseCase: UserDevicesUseCase
-) : DeviceBaseViewModel(userDevicesUseCase) {
-
-    override fun onCleared() {
-        super.onCleared()
-    }
+    userDevicesInteractor: UserDevicesInteractor,
+) : DeviceBaseViewModel(userDevicesInteractor) {
 
     fun setDeviceId(deviceId: Int) {
         getDeviceById(deviceId)

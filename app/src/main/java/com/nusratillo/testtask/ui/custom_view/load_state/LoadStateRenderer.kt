@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import com.nusratillo.testtask.R
+import com.nusratillo.testtask.databinding.ViewErrorStateBinding
+import com.nusratillo.testtask.databinding.ViewLoadingBinding
 
 class LoadStateRenderer(
     private val placeHolder: PlaceHolder
@@ -11,16 +13,11 @@ class LoadStateRenderer(
     private var currentLoadState: LoadState = NoneState
 
     private val errorView by lazy {
-        LayoutInflater.from(placeHolder.context)
-            .inflate(R.layout.view_error_state, placeHolder, false)
+        ViewErrorStateBinding.inflate(LayoutInflater.from(placeHolder.context), placeHolder, false)
     }
     private val loadingView by lazy {
-        LayoutInflater.from(placeHolder.context)
-            .inflate(R.layout.view_loading, placeHolder, false)
+        ViewLoadingBinding.inflate(LayoutInflater.from(placeHolder.context), placeHolder, false)
     }
-
-    private val reloadBtn: Button by lazy { errorView.findViewById(R.id.try_again_btn) }
-    private val errorMessageTv: TextView by lazy { errorView.findViewById(R.id.message_tv) }
 
     fun render(loadState: LoadState) {
         if (currentLoadState == loadState)
@@ -32,10 +29,10 @@ class LoadStateRenderer(
                 placeHolder.isClickable = true
                 placeHolder.isFocusable = true
                 placeHolder.removeAllViews()
-                placeHolder.addView(errorView)
+                placeHolder.addView(errorView.root)
 
-                reloadBtn.setOnClickListener { loadState.reloadClickListener() }
-                errorMessageTv.text = loadState.errorMessage
+                errorView.tryAgainBtn.setOnClickListener { loadState.reloadClickListener() }
+                errorView.messageTv.text = loadState.errorMessage
             }
 
             is NoneState -> {
@@ -48,7 +45,7 @@ class LoadStateRenderer(
                 placeHolder.isClickable = true
                 placeHolder.isFocusable = true
                 placeHolder.removeAllViews()
-                placeHolder.addView(loadingView)
+                placeHolder.addView(loadingView.root)
             }
         }
     }

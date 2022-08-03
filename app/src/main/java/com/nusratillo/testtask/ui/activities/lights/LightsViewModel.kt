@@ -1,16 +1,12 @@
 package com.nusratillo.testtask.ui.activities.lights
 
 import com.nusratillo.testtask.data.model.Light
-import com.nusratillo.testtask.domain.UserDevicesUseCase
+import com.nusratillo.testtask.domain.UserDevicesInteractor
 import com.nusratillo.testtask.ui.DeviceBaseViewModel
 
 class LightsViewModel(
-    userDevicesUseCase: UserDevicesUseCase
-) : DeviceBaseViewModel(userDevicesUseCase) {
-
-    override fun onCleared() {
-        super.onCleared()
-    }
+    userDevicesInteractor: UserDevicesInteractor,
+) : DeviceBaseViewModel(userDevicesInteractor) {
 
     fun setDeviceId(deviceId: Int) {
         getDeviceById(deviceId)

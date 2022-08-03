@@ -124,7 +124,7 @@ class UserDevicesActivity : AppCompatActivity() {
     ) {
         val items: Array<String> = selectableItems.items.map { getString(it) }.toTypedArray()
         AlertDialog.Builder(this@UserDevicesActivity)
-            .setTitle(R.string.select_device_type)
+            .setTitle(R.string.select_language)
             .setSingleChoiceItems(
                 items,
                 selectableItems.selectedItemPosition
