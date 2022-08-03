@@ -9,4 +9,4 @@
     android:elevation="8dp"
     android:orientation="vertical"
     android:padding="16dp"
-    android:textColor="@color/black" />
+    android:textAppearance="@style/Text.Regular.16.PrimaryColor" />

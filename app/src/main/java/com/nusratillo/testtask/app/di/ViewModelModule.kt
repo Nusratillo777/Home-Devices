@@ -1,10 +1,10 @@
 package com.nusratillo.testtask.app.di
 
-import com.nusratillo.testtask.ui.heater.HeaterViewModel
-import com.nusratillo.testtask.ui.lights.LightsViewModel
-import com.nusratillo.testtask.ui.shutter_roller.RollerShutterViewModel
-import com.nusratillo.testtask.ui.user.UserViewModel
-import com.nusratillo.testtask.ui.user_devices.UserDevicesViewModel
+import com.nusratillo.testtask.ui.activities.heater.HeaterViewModel
+import com.nusratillo.testtask.ui.activities.lights.LightsViewModel
+import com.nusratillo.testtask.ui.activities.shutter_roller.RollerShutterViewModel
+import com.nusratillo.testtask.ui.activities.user.UserViewModel
+import com.nusratillo.testtask.ui.activities.user_devices.UserDevicesViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.user
+package com.nusratillo.testtask.ui.activities.user
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
@@ -47,7 +47,7 @@ class UserViewModel(
     }
 
     fun birthDateOnSelect(date: Triple<Int, Int, Int>) {
-        val newUser = _user.value?.copy(birthDate = date.convertToLong())
+        val newUser = _user.value?.copy(birthDate = date.convertToLong()) ?: return
         _user.postValue(newUser)
     }
 

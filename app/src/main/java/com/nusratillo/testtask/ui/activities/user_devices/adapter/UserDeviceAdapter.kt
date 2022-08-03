@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.user_devices.adapter
+package com.nusratillo.testtask.ui.activities.user_devices.adapter
 
 import android.view.View
 import android.view.ViewGroup

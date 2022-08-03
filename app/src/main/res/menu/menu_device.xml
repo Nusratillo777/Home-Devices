@@ -5,5 +5,6 @@
         android:id="@+id/update_menu"
         android:icon="@drawable/ic_check"
         android:title=""
+        app:iconTint="@color/menu_icon_tint"
         app:showAsAction="always" />
 </menu>

@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.user_devices.adapter
+package com.nusratillo.testtask.ui.activities.user_devices.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.nusratillo.testtask.data.model.Device

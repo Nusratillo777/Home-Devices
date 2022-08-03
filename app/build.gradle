@@ -19,7 +19,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -80,9 +81,4 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
-
-    def maps_version = "2.3.0"
-    def google_play_services_version = "18.1.0"
-    implementation "com.google.maps.android:android-maps-utils:$maps_version"
-    implementation "com.google.android.gms:play-services-maps:$google_play_services_version"
 }

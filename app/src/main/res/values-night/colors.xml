@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="card_ripple_color">#80FFFFFF</color>
+    <color name="card_bg_color">#494949</color>
+    <color name="menu_icon_tint">@color/white</color>
+    <color name="toolbar_color">#424242</color>
+</resources>

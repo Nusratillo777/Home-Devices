@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.user_devices
+package com.nusratillo.testtask.ui.activities.user_devices
 
 import android.os.Bundle
 import android.view.Menu
@@ -14,12 +14,12 @@ import com.nusratillo.testtask.data.model.DeviceTypeWithNames
 import com.nusratillo.testtask.databinding.ActivityUserDevicesBinding
 import com.nusratillo.testtask.ui.changeLocales
 import com.nusratillo.testtask.ui.custom_view.load_state.*
-import com.nusratillo.testtask.ui.heater.HeaterActivity
-import com.nusratillo.testtask.ui.lights.LightsActivity
-import com.nusratillo.testtask.ui.shutter_roller.RollerShutterActivity
-import com.nusratillo.testtask.ui.user.UserActivity
-import com.nusratillo.testtask.ui.user_devices.adapter.SwipeToRightCallback
-import com.nusratillo.testtask.ui.user_devices.adapter.UserDeviceAdapter
+import com.nusratillo.testtask.ui.activities.heater.HeaterActivity
+import com.nusratillo.testtask.ui.activities.lights.LightsActivity
+import com.nusratillo.testtask.ui.activities.shutter_roller.RollerShutterActivity
+import com.nusratillo.testtask.ui.activities.user.UserActivity
+import com.nusratillo.testtask.ui.activities.user_devices.adapter.SwipeToRightCallback
+import com.nusratillo.testtask.ui.activities.user_devices.adapter.UserDeviceAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserDevicesActivity : AppCompatActivity() {
@@ -90,20 +90,22 @@ class UserDevicesActivity : AppCompatActivity() {
     }
 
     private fun observeActivityAction(action: ActivityAction) {
-        userDevicesViewModel.openActivityActionHandled()
-        when (action.type) {
-            DeviceTypeWithNames.HEATER -> HeaterActivity.openHeaterActivity(
-                this@UserDevicesActivity,
-                action.deviceId
-            )
-            DeviceTypeWithNames.LIGHT -> LightsActivity.openLightsActivity(
-                this@UserDevicesActivity,
-                action.deviceId
-            )
-            DeviceTypeWithNames.ROLLER_SHUTTER -> RollerShutterActivity.openRollerShutterActivity(
-                this@UserDevicesActivity,
-                action.deviceId
-            )
+        if (!action.isHandled) {
+            userDevicesViewModel.openActivityActionHandled()
+            when (action.type) {
+                DeviceTypeWithNames.HEATER -> HeaterActivity.openHeaterActivity(
+                    this@UserDevicesActivity,
+                    action.deviceId
+                )
+                DeviceTypeWithNames.LIGHT -> LightsActivity.openLightsActivity(
+                    this@UserDevicesActivity,
+                    action.deviceId
+                )
+                DeviceTypeWithNames.ROLLER_SHUTTER -> RollerShutterActivity.openRollerShutterActivity(
+                    this@UserDevicesActivity,
+                    action.deviceId
+                )
+            }
         }
     }
 
@@ -133,17 +135,19 @@ class UserDevicesActivity : AppCompatActivity() {
     }
 
     private fun showMultipleItemSelectorDialog(selectableItems: MultiSelectableItems) {
-        val items: Array<String> = selectableItems.items.map { getString(it) }.toTypedArray()
-        AlertDialog.Builder(this@UserDevicesActivity)
-            .setTitle(R.string.select_device_type)
-            .setPositiveButton(R.string.ok) { _, _ ->
-                userDevicesViewModel.applyFilter()
-            }.setMultiChoiceItems(
-                items,
-                selectableItems.selectedItems.toBooleanArray()
-            ) { _, position, isSelected ->
-                userDevicesViewModel.onFilterSelected(position, isSelected)
-            }.show()
+        if (selectableItems.state == DialogState.OPEN) {
+            val items: Array<String> = selectableItems.items.map { getString(it) }.toTypedArray()
+            AlertDialog.Builder(this@UserDevicesActivity)
+                .setTitle(R.string.select_device_type)
+                .setPositiveButton(R.string.ok) { _, _ ->
+                    userDevicesViewModel.applyFilter()
+                }.setMultiChoiceItems(
+                    items,
+                    selectableItems.selectedItems.toBooleanArray()
+                ) { _, position, isSelected ->
+                    userDevicesViewModel.onFilterSelected(position, isSelected)
+                }.show()
+        }
     }
 
     private fun showMessage(messageId: Int) {

@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.lights
+package com.nusratillo.testtask.ui.activities.lights
 
 import android.content.Context
 import android.content.Intent

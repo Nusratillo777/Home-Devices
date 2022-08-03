@@ -1,8 +1,7 @@
-package com.nusratillo.testtask.ui.user_devices
+package com.nusratillo.testtask.ui.activities.user_devices
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.nusratillo.testtask.EMPTY_STRING
 import com.nusratillo.testtask.R
@@ -80,7 +79,8 @@ class UserDevicesViewModel(
         _showFilters.postValue(
             MultiSelectableItems(
                 DeviceTypeWithNames.values().map { it.userVisibleNameId },
-                selectedItems
+                selectedItems,
+                DialogState.OPEN
             )
         )
     }
@@ -95,6 +95,7 @@ class UserDevicesViewModel(
 
     fun applyFilter() {
         _selectedFilter.postValue(_selectedFilter.value)
+        _showFilters.value = _showFilters.value?.copy(state = DialogState.CLOSE)
         getUserDevicesBy()
     }
 

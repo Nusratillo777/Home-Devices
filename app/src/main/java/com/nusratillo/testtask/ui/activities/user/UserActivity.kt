@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.user
+package com.nusratillo.testtask.ui.activities.user
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity

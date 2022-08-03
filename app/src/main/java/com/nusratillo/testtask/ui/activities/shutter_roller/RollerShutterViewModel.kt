@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.shutter_roller
+package com.nusratillo.testtask.ui.activities.shutter_roller
 
 import com.nusratillo.testtask.data.model.RollerShutter
 import com.nusratillo.testtask.domain.UserDevicesUseCase
@@ -17,7 +17,7 @@ class RollerShutterViewModel(
     }
 
     fun positionChanged(position: Float) {
-        val newDevice = (device.value as? RollerShutter)?.copy(position = position.toInt())
+        val newDevice = (device.value as? RollerShutter)?.copy(position = position.toInt()) ?: return
         _device.postValue(newDevice)
     }
 }

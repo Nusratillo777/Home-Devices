@@ -1,4 +1,4 @@
-package com.nusratillo.testtask.ui.heater
+package com.nusratillo.testtask.ui.activities.shutter_roller
 
 import android.content.Context
 import android.content.Intent
@@ -7,22 +7,21 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.nusratillo.testtask.R
 import com.nusratillo.testtask.SELECTED_DEVICE_ID
-import com.nusratillo.testtask.data.model.Heater
-import com.nusratillo.testtask.databinding.ActivityHeaterBinding
+import com.nusratillo.testtask.data.model.RollerShutter
+import com.nusratillo.testtask.databinding.ActivityRollerShutterBinding
 import com.nusratillo.testtask.ui.custom_view.load_state.LoadStateRenderer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HeaterActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHeaterBinding
+class RollerShutterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRollerShutterBinding
     private lateinit var renderer: LoadStateRenderer
-    private val viewModel: HeaterViewModel by viewModel()
+    private val viewModel: RollerShutterViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHeaterBinding.inflate(layoutInflater)
+        binding = ActivityRollerShutterBinding.inflate(layoutInflater)
         renderer = LoadStateRenderer(binding.placeHolder)
         setContentView(binding.root)
 
@@ -54,44 +53,36 @@ class HeaterActivity : AppCompatActivity() {
     }
 
     private fun initToolbar() {
-        setSupportActionBar(binding.heaterToolbar)
+        setSupportActionBar(binding.rollerShutterToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
     private fun observeData() {
         viewModel.loadState.observe(this, renderer::render)
-        viewModel.device.observe(this) { observeDevice(it as Heater) }
+        viewModel.device.observe(this) { observeDevice(it as RollerShutter) }
         viewModel.message.observe(this, ::showMessage)
     }
 
-    private fun observeDevice(device: Heater) {
+    private fun observeDevice(device: RollerShutter) {
         binding.titleTv.text = device.deviceName
-        binding.temperatureTv.text = device.temperature.toString()
-        binding.temperatureSlider.value = device.temperature
-        binding.heaterModeSwitch.isChecked = device.mode
-
-        binding.temperatureTitleTv.isVisible = device.mode
-        binding.temperatureTv.isVisible = device.mode
-        binding.temperatureSlider.isVisible = device.mode
+        binding.positionSlider.value = device.position.toFloat()
+        binding.positionTv.text = device.position.toString()
     }
 
     private fun showMessage(messageId: Int) {
-        Toast.makeText(this@HeaterActivity, getString(messageId), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@RollerShutterActivity, getString(messageId), Toast.LENGTH_SHORT).show()
     }
 
     private fun initListeners() {
-        binding.temperatureSlider.addOnChangeListener { _, value, fromUser ->
-            if (fromUser) viewModel.temperatureChanged(value)
-        }
-        binding.heaterModeSwitch.setOnCheckedChangeListener { _, mode ->
-            viewModel.heaterModeChanged(mode)
+        binding.positionSlider.addOnChangeListener { _, value, fromUser ->
+            if (fromUser) viewModel.positionChanged(value)
         }
     }
 
     companion object {
-        fun openHeaterActivity(context: Context, deviceId: Int) {
-            val intent = Intent(context, HeaterActivity::class.java)
+        fun openRollerShutterActivity(context: Context, deviceId: Int) {
+            val intent = Intent(context, RollerShutterActivity::class.java)
             intent.putExtra(SELECTED_DEVICE_ID, deviceId)
             context.startActivity(intent)
         }
