@@ -1,5 +1,6 @@
 package com.nusratillo.testtask
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nusratillo.testtask.data.model.User
 import com.nusratillo.testtask.data.model.UserDevices
 import com.nusratillo.testtask.data.preferences.PrefManager
@@ -7,7 +8,7 @@ import com.nusratillo.testtask.data.repository.UserDevicesRepository
 import com.nusratillo.testtask.domain.UserDevicesInteractor
 import com.nusratillo.testtask.domain.UserInteractor
 import io.reactivex.Observable
-import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -16,6 +17,10 @@ import org.mockito.kotlin.whenever
 
 @RunWith(MockitoJUnitRunner::class)
 class UserDeviceInteractorTest {
+
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
+
     @Mock
     private lateinit var userDevicesRepository: UserDevicesRepository
 

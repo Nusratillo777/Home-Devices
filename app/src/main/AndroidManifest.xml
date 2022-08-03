@@ -18,16 +18,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.nusratillo.testtask.ui.activities.user_devices.UserDevicesActivity"
+            android:name=".ui.activities.user_devices.UserDevicesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.nusratillo.testtask.ui.activities.heater.HeaterActivity" />
-        <activity android:name="com.nusratillo.testtask.ui.activities.lights.LightsActivity" />
-        <activity android:name="com.nusratillo.testtask.ui.activities.shutter_roller.RollerShutterActivity" />
-        <activity android:name="com.nusratillo.testtask.ui.activities.user.UserActivity" />
+        <activity android:name=".ui.activities.heater.HeaterActivity" />
+        <activity android:name=".ui.activities.lights.LightsActivity" />
+        <activity android:name=".ui.activities.shutter_roller.RollerShutterActivity" />
+        <activity android:name=".ui.activities.user.UserActivity" />
     </application>
 </manifest>

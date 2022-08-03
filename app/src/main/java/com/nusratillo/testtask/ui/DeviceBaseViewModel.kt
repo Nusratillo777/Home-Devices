@@ -1,9 +1,7 @@
 package com.nusratillo.testtask.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.nusratillo.testtask.EMPTY_STRING
 import com.nusratillo.testtask.R
@@ -20,14 +18,14 @@ import io.reactivex.schedulers.Schedulers
 abstract class DeviceBaseViewModel(
     private val userDevicesInteractor: UserDevicesInteractor,
 ) : ViewModel() {
-    protected val _loadState = MutableLiveData<LoadState>()
+    private val _loadState = MutableLiveData<LoadState>()
     val loadState: LiveData<LoadState> = _loadState
     protected val _device = MutableLiveData<Device>()
     val device: LiveData<Device> = _device
-    protected val _message = MutableLiveData<Int>()
+    private val _message = MutableLiveData<Int>()
     val message: LiveData<Int> = _message
 
-    protected val compositeDisposable = CompositeDisposable()
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCleared() {
         compositeDisposable.clear()

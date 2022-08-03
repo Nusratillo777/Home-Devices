@@ -9,11 +9,6 @@ fun Long.convertLongToDateString(): String {
     return format.format(date)
 }
 
-fun String.convertDateToLong(): Long {
-    val df = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-    return df.parse(this)?.time ?: System.currentTimeMillis()
-}
-
 fun Triple<Int, Int, Int>.convertToLong(): Long {
     val calendar = Calendar.getInstance()
     calendar.set(Calendar.YEAR, first)

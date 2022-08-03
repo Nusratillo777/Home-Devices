@@ -1,10 +1,7 @@
 package com.nusratillo.testtask.data.data_sources
 
-import android.util.Log
 import com.nusratillo.testtask.data.daos.UserDevicesDao
 import com.nusratillo.testtask.data.model.entities.UserDeviceEntity
-import com.nusratillo.testtask.data.model.mapper.mapToModel
-import com.nusratillo.testtask.data.model.mapper.mapToResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single

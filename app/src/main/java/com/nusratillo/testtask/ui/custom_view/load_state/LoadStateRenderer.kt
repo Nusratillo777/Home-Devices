@@ -1,9 +1,6 @@
 package com.nusratillo.testtask.ui.custom_view.load_state
 
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.TextView
-import com.nusratillo.testtask.R
 import com.nusratillo.testtask.databinding.ViewErrorStateBinding
 import com.nusratillo.testtask.databinding.ViewLoadingBinding
 
